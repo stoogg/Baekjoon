@@ -1,33 +1,18 @@
 #include <iostream>
-#include <algorithm> 
 
-int main() 
+int main()
 {
-    int heru, ausar, auset;
+	int a,b,c;
 
-    while (true) 
-    {
-        std::cin >> ausar >> auset >> heru;
+	while (std::cin >> a >> b >> c)
+	{
+		if (a == 0 && b == 0 && c == 0) break;
 
-        if (heru == 0 && ausar == 0 && auset == 0) 
-            break;
-        
-        int a = std::min({ ausar, auset, heru });
-        int c = std::max({ ausar, auset, heru });
-        int b;
+		std::cout <<	(a * a + b * b == c * c || 
+						a * a + c * c == b * b || 
+						b * b + c * c == a * a ? 
+						"right\n" : "wrong\n");
+	}
 
-        if (a != ausar && c != ausar) 
-            b = ausar;
-        else if (a != auset && c != auset) 
-            b = auset;
-        else 
-            b = heru;
-        
-        if (c * c == a * a + b * b) 
-            std::cout << "right\n";
-        else 
-            std::cout << "wrong\n";
-    }
-
-    return 0;
+	return 0;
 }
